@@ -7,7 +7,7 @@
 <meta name="description" content="Discover John Conway's 'Game of Life' simulation – a fascinating Python project that demonstrates the principles of cellular evolution.">
 <meta name="author" content="Vladyslav Dovhopiatyi">
 <title>Conway's Game of Life - Python Simulation</title>
-<link rel="icon" type="image/png" href="favicon.png">
+<link rel="icon" type="image/jpg" href="favi.jpg">
 
 <style>
 
@@ -140,7 +140,7 @@ line-height: 1.6;
 0%, 100% { transform: translateY(0); }
 50% { transform: translateY(10px); }
 }
-
+/* SQUARE */
 .square_container {
 display: flex;
 flex-wrap: wrap;
@@ -279,7 +279,7 @@ width: 100%;
 padding: 10px;
 }
 }
-
+/* GAME OF LIFE CSS */
 .game-section-container {
 margin-left: 25%;
 width: 75%;
@@ -309,6 +309,107 @@ margin-left: 0;
 width: 100%;
 padding: 10px;
 }
+}
+/* Ecosystem Simulation CSS */
+
+.ecosystem-game {
+    margin-left: 20%; 
+    padding: 20px;
+}
+
+.ecosystem-game #generation-label {
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+    width: 100%;
+}
+
+.ecosystem-game .main-container {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto; 
+    align-items: center; 
+    justify-content: center;
+}
+
+.ecosystem-game .grid-wrapper {
+    overflow-x: auto; 
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 10px;
+}
+
+.ecosystem-game #grid-container {
+    display: grid;
+    grid-template-columns: repeat(30, 18px); 
+    grid-template-rows: repeat(30, 18px);
+    gap: 1px;
+    background-color: #ccc;
+    border: 2px solid #333;
+}
+
+.ecosystem-game .cell {
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px; 
+    user-select: none;
+}
+
+.ecosystem-game .charts-container {
+    display: flex;
+    flex-direction: row; 
+    flex-wrap: wrap;
+    gap: 20px;
+    width: 100%;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+.ecosystem-game .chart-box {
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    flex: 1;
+    min-width: 280px;
+    max-width: 450px; 
+}
+
+.ecosystem-game canvas {
+    width: 100% !important;
+    height: auto !important;
+}
+
+@media (max-width: 768px) {
+    .ecosystem-game {
+        margin-left: 0; 
+        padding: 10px;
+    }
+
+    .ecosystem-game .main-container {
+        gap: 20px;
+    }
+
+    .ecosystem-game .grid-wrapper {
+        justify-content: flex-start; 
+    }
+
+    .ecosystem-game .charts-container {
+        flex-direction: column; 
+        align-items: center;
+    }
+    
+    .ecosystem-game .chart-box {
+        width: 100%;
+        max-width: 100%;
+    }
 }
 
 </style>
@@ -376,18 +477,26 @@ padding: 10px;
 <div class="square_container">
 
 <div class="square">
-<p>This was my first computer game and my first time using Python. To write this game, I used the PyQt5 library. When you start the game, it creates a 20 * 20 grid. This game was created primarily to learn object-oriented programming.</p>
-</div>
-<div class="square">
-<p>Live and dead cells are generated randomly: live ones are blue, and dead ones are white. The board updates based on John Conway's classic rules: cells are born, live, or die due to underpopulation or overpopulation.</p>
+<p>This was my first computer game and my first time using Python. To write this game, I used the PyQt5 library.</p>
 </div>
 
+<div class="square spoken-lang">
+<p>When you start the game, it creates a 20 * 20 grid. This game was created primarily to learn object-oriented programming.</p>
+</div>
+
+<div class="square">
+<p>Live and dead cells are generated randomly: live ones are blue, and dead ones are white.</p>
+</div>
+
+<div class="square spoken-lang">
+<p>The board updates based on John Conway's classic rules: cells are born, live, or die due to underpopulation or overpopulation.</p>
+</div>
 </div>
 
 <p style="font-size: 250%; color:#cc0000; animation: bounce 1.5s infinite;"><b>&#x2B07; &#x2B07; &#x2B07;</b></p>
 
 <div class="button_container">
-<a href="gra_w_zycie.exe" download="Game_of_Life.exe" class="button-link"><b>Game of Life (.exe)</b></a>
+<a href="https://github.com/liooonchik/portfolio-website/releases/download/game/gra_w_zycie.exe" download="Game_of_Life.exe" class="button-link"><b>Game of Life (.exe)</b></a>
 </div>
 
 <div class="button_container">

@@ -4,10 +4,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta charset="UTF-8">
 <meta name="keywords" content="projects, Python, Java, Kotlin, Game of Life, ecosystem, simulations, programming, Vladyslav Dovhopiatyi">
-<meta name="description" content="View my projects">
+<meta name="description" content="Discover 'Ecosystem simulation'">
 <meta name="author" content="Vladyslav Dovhopiatyi">
-<title>My projects</title>
+<title>Ecosystem simulation - Python</title>
 <link rel="icon" type="image/jpg" href="favi.jpg">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <style>
 
@@ -465,44 +466,67 @@ padding: 10px;
 
 <script src="wyszukiwarka_script.js"></script>
 
-<h1>What do I know?</h1>
+<h1>🐍Ecosystem simulation🐍</h1>
+
+<div class="ecosystem-game">
+
+    <div id="generation-label">Generation: 0</div>
+
+    <div class="main-container">
+        <div class="grid-wrapper">
+            <div id="grid-container"></div>
+        </div>
+
+        <div class="charts-container">
+            <div class="chart-box">
+                <canvas id="lineChart" height="400"></canvas>
+            </div>
+            <div class="chart-box">
+                <canvas id="pieChart" height="200"></canvas>
+            </div>
+        </div>
+    </div>
+
+</div>
+    
+<script src="js_symulacja_ekosystemy.js"></script>
 
 <div class="square_container">
 
-<div class="square">
-<div class="lang-icon">🐍</div>
-<h3>Python</h3>
-<p>Intermediate</p>
+<div class="square spoken-lang">
+    <p>This is a 2D ecosystem simulation. This game is similar to the previous one (Game of Life).</p>
 </div>
 
 <div class="square">
-<div class="lang-icon">☕</div>
-<h3>Java</h3>
-<p>Intermediate</p>
+    <p>The project is built on OOP: there is a base parent class from which four types of creatures are created via polymorphism.</p>
+</div>
+
+<div class="square spoken-lang">
+    <p>The game uses the PyQt5 library, which is the exact same one used in the Game of Life, to create the grid interface.</p>
 </div>
 
 <div class="square">
-<div class="lang-icon">🅺</div>
-<h3>Kotlin</h3>
-<p>Advanced</p>
+    <p>The Matplotlib library is used to generate charts, while a CSV file is used to store the population history data.</p>
+</div>
+
+<div class="square spoken-lang">
+    <p>The game runs automatically for 300 generations. Meanwhile, analytical charts are drawn throughout the entire simulation.</p>
 </div>
 
 <div class="square">
-<div class="lang-icon">C#</div>
-<h3>C#</h3>
-<p>Beginner</p>
+    <p>The 30x30 map contains empty tiles marked as "⬜", Plants - 🥕, Herbivores - "🐇", Carnivores - "🐺", Omnivores - "🐻".</p>
+</div>
+
+<div class="square spoken-lang">
+    <p>The grid is filled randomly at the start: 1 plant, 20 herbivores, 10 carnivores, and 3 omnivorous inhabitants.</p>
 </div>
 
 <div class="square">
-<div class="lang-icon">C++</div>
-<h3>C++</h3>
-<p>Pre-intermediate</p>
+    <p>A special factory protects species from extinction: if any group vanishes, it instantly restores its initial count.</p>
 </div>
 
-<div class="square">
-<div class="lang-icon">JS</div>
-<h3>JavaScript</h3>
-<p>Pre-intermediate</p>
+<div class="square spoken-lang">
+    <p>Each organism can reproduce upon reaching a certain age, energy level, and finding a matching organism nearby.</p>
 </div>
 
 </div>
@@ -511,37 +535,56 @@ padding: 10px;
 
 <div class="square_container">
 
-<div class="square spoken-lang">
-<div class="lang-icon">🇺🇦</div>
-<h3>Ukrainian</h3>
-<p>Native</p>
+<div class="square" style="background-color: #cfd8dc; box-shadow: 8px 8px 0px #90a4ae;">
+<div class="lang-icon">⬜</div>
+<h3>Empty tile</h3>
+<p>An empty tile on the grid that serves as space for animal movement and is free to be occupied by other creatures.</p>
 </div>
 
-<div class="square spoken-lang">
-<div class="lang-icon">🇵🇱</div>
-<h3>Polish</h3>
-<p>Upper-Intermediate (B2)</p>
+<div class="square" style="background-color: #4caf50; box-shadow: 8px 8px 0px #2e7d32;">
+<div class="lang-icon" >🥕</div>
+<h3>Plant</h3>
+<p>Accumulates up to 10 energy units. It can reproduce onto adjacent empty tiles once it reaches the age of 4 turns.</p>
 </div>
 
-<div class="square spoken-lang">
-<div class="lang-icon">🇬🇧</div>
-<h3>English</h3>
-<p>Intermediate (B1)</p>
+<div class="square" style="background-color: #ba68c8; box-shadow: 8px 8px 0px #7b1fa2;">
+<div class="lang-icon">🐇</div>
+<h3>Herbivore</h3>
+<p>Loses 1 energy per turn and restores it by eating plants (+2). Reproduces from age 4 and dies of old age after 15 turns.</p>
 </div>
 
-<div class="square spoken-lang">
-<div class="lang-icon">🇷🇺</div>
-<h3>Russian</h3>
-<p>Proficiency (C2)</p>
+<div class="square" style="background-color: #ff9800; box-shadow: 8px 8px 0px #f57c00;">
+<div class="lang-icon">🐺</div>
+<h3>Carnivore</h3>
+<p>Loses 2 energy per turn and restores it by eating herbivores (+9). Reproduces from age 5 and dies of old age after 25 turns.</p>
+</div>
+
+<div class="square" style="background-color: #8d6e63; box-shadow: 8px 8px 0px #5d4037;">
+<div class="lang-icon">🐻</div>
+<h3>Omnivore</h3>
+<p>Loses 1 energy per turn. Feeds on both plants (+3) and carnivores (+7). Reproduces from age 5 and lives up to 30 turns.</p>
 </div>
 </div>
 
-<h1>Projects:</h1>
+<p style="font-size: 250%; color:#cc0000; animation: bounce 1.5s infinite;"><b>&#x2B07; &#x2B07; &#x2B07;</b></p>
 
 <div class="button_container">
-<a href="gra_w_zycie.html" target="_self" rel="noopener noreferrer" class="button-link"><b>Game of Life</b></a>
+<a href="https://github.com/liooonchik/portfolio-website/releases/download/game/ekosystem.exe" download="Ekosystem.exe" class="button-link"><b>Ecosystem simulation (.exe)</b></a>
+</div>
 
-<a href="symulacja_ekosystemy.html" target="_self" rel="noopener noreferrer" class="button-link"><b>Ecosystem simulation</b></a>
+<div class="button_container">
+<a href="ekosystem.py" target="_blank" rel="noopener noreferrer" class="button-link" download="ekosystem.py"><b>Ecosystem simulation (.py)</b></a>
+</div>
+
+<hr style="border: none; height: 10px; background-color: #cc00cc; margin: 20px 0;">
+<hr style="border: none; height: 10px; background-color: #cc00cc; margin: 20px 0;">
+<hr style="border: none; height: 10px; background-color: #cc00cc; margin: 20px 0;">
+
+<h1>Other projects:</h1>
+
+<div class="button_container">
+
+<a href="gra_w_zycie.html" target="_self" rel="noopener noreferrer" class="button-link"><b>Game of Life</b></a>
 
 <a href="zhoska_bitwa.html" target="_self" rel="noopener noreferrer" class="button-link"><b>Zhoska bitwa</b></a>
 
